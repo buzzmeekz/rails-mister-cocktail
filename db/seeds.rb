@@ -5,8 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'faker'
-require 'json'
 
 Ingredient.destroy_all
 
@@ -16,14 +14,4 @@ ingredients = data_hash.first[1]
 
 ingredients.each do |a|
   Ingredient.create!(name: a['strIngredient1'])
-end
-
-Cocktail.destroy_all
-
-50.times do
-  article = Cocktail.new(
-    title: Faker::MostInterestingManInTheWorld.quote,
-    content: Faker::Hipster.paragraph
-  )
-  article.save
 end
