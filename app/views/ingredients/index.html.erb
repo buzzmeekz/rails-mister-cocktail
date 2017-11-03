@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Ingredients list</h1>
+<ul>
+  <% @ingredients.each do |i| %>
+    <li>
+      <%= link_to i.name, ingredient_path(id: i.id) %>
+    </li>
+  <% end %>
+</ul>
+
+</div>
+
