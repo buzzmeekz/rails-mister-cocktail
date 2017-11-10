@@ -40,6 +40,9 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'jquery-rails'
+gem 'acts_as_votable', '~> 0.11.1'
+gem 'devise'
+gem 'devise-bootstrapped'
 
 # image upload
 gem 'cloudinary', '1.1.7'

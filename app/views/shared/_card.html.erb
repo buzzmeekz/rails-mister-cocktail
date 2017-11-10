@@ -1,6 +1,25 @@
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= photo?(cocktail) %>');">
-  <div class="card-category">Popular</div>
-  <div class="card-description">
-    <h2><%= link_to cocktail.name, cocktail_path(id: cocktail.id) %></h2>
+<div class="card">
+  <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('<%= photo?(cocktail) %>');">
+    <div class="card-category">Popular</div>
+    <div class="card-desc">
+      <h2><%= link_to cocktail.name, cocktail_path(id: cocktail.id) %></h2>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="card-date">Posted on <%= cocktail.created_at.strftime("%d-%m-%Y") %></div>
+    <div class="card-links">
+      <ul>
+        <li>
+          <% if user_signed_in? %>
+            <% if cocktail.voted_on_by? current_user %>
+              <%= link_to '', unlike_cocktail_path(cocktail.id), remote: true, id: "like_#{cocktail.id}", class: "glyphicon glyphicon-star" %>
+            <% else %>
+              <%= link_to '', like_cocktail_path(cocktail.id), remote: true, id: "like_#{cocktail.id}", class: "glyphicon glyphicon-star-empty" %>
+            <% end %>
+          <% end %>
+        </li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php"><i class="fa fa-share" aria-hidden="true"></i></a></li>
+      </ul>
+    </div>
   </div>
 </div>
