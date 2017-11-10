@@ -1,6 +1,6 @@
 class IngredientsController < ApplicationController
   def index
-    @ingredients = Ingredient.includes(:cocktails).where.not(cocktails: {id: nil})
+    @ingredients = Ingredient.joins(:cocktails).group("ingredients.id").order("count(ingredients.id) desc").limit(30)
   end
 
   def show

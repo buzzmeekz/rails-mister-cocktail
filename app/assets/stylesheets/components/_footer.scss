@@ -3,10 +3,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 60px;
   padding: 0px 50px;
   color: #fff;
   border-top: 1px solid #ccc;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 .footer-links {
   display: flex;
@@ -21,4 +24,8 @@
 }
 .footer-links a:hover {
   opacity: 1;
+}
+
+.footer-copyright {
+  overflow: hidden;
 }

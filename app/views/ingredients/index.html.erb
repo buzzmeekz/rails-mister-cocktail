@@ -3,7 +3,8 @@
 <ul>
   <% @ingredients.each do |i| %>
     <li>
-      <%= link_to i.name, ingredient_path(id: i.id) %>
+      <%= link_to i.name, ingredient_path(id: i.id) %> 
+      (<%= i.cocktails.count %>)
     </li>
   <% end %>
 </ul>
