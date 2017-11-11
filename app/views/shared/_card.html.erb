@@ -12,13 +12,13 @@
         <li>
           <% if user_signed_in? %>
             <% if cocktail.voted_on_by? current_user %>
-              <%= link_to '', unlike_cocktail_path(cocktail.id), remote: true, id: "like_#{cocktail.id}", class: "glyphicon glyphicon-star" %>
+              <%= link_to '', unlike_cocktail_path(cocktail.id), remote: true, id: "like_#{cocktail.id}", class: "glyphicon glyphicon-star", title: 'Favorite', 'data-toggle' => 'tooltip', 'data-placement' => 'right' %>
             <% else %>
               <%= link_to '', like_cocktail_path(cocktail.id), remote: true, id: "like_#{cocktail.id}", class: "glyphicon glyphicon-star-empty" %>
             <% end %>
           <% end %>
         </li>
-        <li><a href="https://www.facebook.com/sharer/sharer.php"><i class="fa fa-share" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.facebook.com/sharer/sharer.php" data-toggle="tooltip" title="Share" data-placement="right"><i class="fa fa-share" aria-hidden="true"></i></a></li>
       </ul>
     </div>
   </div>
