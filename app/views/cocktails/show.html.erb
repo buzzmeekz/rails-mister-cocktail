@@ -14,13 +14,12 @@
     </div>
     <div class="col-xs-12 col-sm-6">
       <br><br>
-      <h4>Doses</h4>
-      <%= link_to "Add a dose", new_cocktail_dose_path(@cocktail.id) %>
+      <h4>Doses <span class="plus-minus"><%= link_to '<i class="fa fa-plus-circle" aria-hidden="true"></i>'.html_safe, new_cocktail_dose_path(@cocktail.id) %></span></h4>
       <ul>
         <% @cocktail.doses.each do |dose| %>
         <li>
-          <%= dose.description %> - <%= dose.ingredient.name %><br>
-          <%= link_to "Delete", dose_path(dose.id), method: :delete %>
+          <%= dose.description %> of <%= dose.ingredient.name %> 
+          <span class="plus-minus"><%= link_to '<i class="fa fa-minus-circle" aria-hidden="true"></i>'.html_safe, dose_path(dose.id), method: :delete, data: {confirm: "Delete this ingredient?"} %></span>
         </li>
         <% end %>
       </ul>
