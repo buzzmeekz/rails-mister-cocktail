@@ -1,7 +1,10 @@
 <div class="container">
+  <div class="title text-center">
+    <h1><%= @cocktail.name %></h1>
+    <hr>
+  </div>
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-sm-offset-2">
-      <h1><%= @cocktail.name %></h1>
       <% if @cocktail.photo? %>
         <%= cl_image_tag @cocktail.photo.path, width: 200, height: 300, crop: :fill %>
       <% else %>
@@ -18,7 +21,7 @@
         <p><%= @cocktail.description %></p>
       <% else %>
         <%= simple_form_for(@cocktail) do |f| %>
-          <%= f.input :description %>
+          <%= f.input :description, as: :text %>
           <%= f.submit %> 
         <% end %>
       <% end %>
